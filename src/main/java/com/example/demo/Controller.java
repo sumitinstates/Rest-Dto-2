@@ -50,15 +50,17 @@ public class Controller {
 				if(findByFirstNameAndLastName==null) 
 				{
 					es.save(employee2);
+					al.add(employee2);
 				}
 				else 
 				{
 					employee.setId(employee2.getId());
 					employee.setFirstName(employee2.getFirstName() + "Already exist");
-					employee.setLastName(employee2.getLastName() + "Already exist");	
+					employee.setLastName(employee2.getLastName() + "Already exist");
+					al.add(employee);
 				}
 			}
-			  al.add(employee2);	   
+			  	   
 		}
 		
 		return new  ResponseEntity<List<Employee2>>(al,HttpStatus.OK);		
